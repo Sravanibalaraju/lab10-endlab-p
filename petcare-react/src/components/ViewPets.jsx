@@ -13,7 +13,7 @@ function ViewPets() {
   });
   const [isEditing, setIsEditing] = useState(false);
 
-  const API_URL = "http://localhost:2017/api/pets";
+  const API_URL = " import.meta.env.VITE_API_URL;";
 
   // Fetch all pets from backend
   useEffect(() => {
