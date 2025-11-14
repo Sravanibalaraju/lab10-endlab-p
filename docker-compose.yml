@@ -8,7 +8,7 @@ services:
       MYSQL_ROOT_PASSWORD: "Sravani@2006"
       MYSQL_DATABASE: "petcare1_db"
     ports:
-      - "3307:3306"     # host:container (keep if you want host access on 3307)
+      - "3307:3306"
     volumes:
       - mysql_data:/var/lib/mysql
     networks:
@@ -32,10 +32,9 @@ services:
     networks:
       - springboot-mysql-net
     environment:
-     
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysqlpetcare1_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb:3306/petcare1_db?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
       SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: Sravani@2006
+      SPRING_DATASOURCE_PASSWORD: "Sravani@2006"
 
   frontend:
     image: sravanibalaraju/docker-frontend-10-p:latest
